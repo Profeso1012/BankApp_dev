@@ -1,0 +1,208 @@
+import * as React from "react";
+import { useState } from "react";
+import { ScrollView, StyleSheet, Pressable, Text, View } from "react-native";
+import { Checkbox } from "react-native-paper";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import { StackNavigationProp } from "@react-navigation/stack";
+import { useNavigation, ParamListBase } from "@react-navigation/native";
+import CaretLeft2 from "../assets/CaretLeft.svg";
+import FrameComponent7 from "../components/FrameComponent7";
+import FrameComponent9 from "../components/FrameComponent9";
+import FrameComponent6 from "../components/FrameComponent6";
+import {
+  Padding,
+  Width,
+  FontFamily,
+  Color,
+  Height,
+  FontSize,
+  LetterSpacing,
+  LineHeight,
+  Gap,
+} from "../GlobalStyles";
+
+const GetStarted21 = () => {
+  const [frameIconchecked, setFrameIconchecked] = useState(false);
+  const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
+
+  return (
+    <KeyboardAwareScrollView
+      style={styles.getStarted2}
+      contentContainerStyle={styles.getStarted2Content}
+    >
+      <View style={[styles.getStarted2Inner, styles.getSpaceBlock]}>
+        <View style={styles.caretleftParent}>
+          <Pressable
+            style={styles.caretleft}
+            onPress={() => navigation.navigate("MainContent")}
+          >
+            <CaretLeft2 style={styles.icon} width={24} height={24} />
+          </Pressable>
+          <View style={styles.step15Wrapper}>
+            <Text style={[styles.step15, styles.step15Typo]}>Step 1/5</Text>
+          </View>
+        </View>
+      </View>
+      <View style={[styles.getStarted2Child, styles.getSpaceBlock]}>
+        <FrameComponent7 state="20%" />
+      </View>
+      <View
+        style={[
+          styles.getStartedWithYourAccountWrapper,
+          styles.wrapperSpaceBlock,
+        ]}
+      >
+        <Text style={styles.getStartedWith}>
+          Get started with your account!
+        </Text>
+      </View>
+      <View style={[styles.frameView, styles.getSpaceBlock]}>
+        <FrameComponent9 />
+      </View>
+      <View style={[styles.termsContentWrapper, styles.wrapperSpaceBlock]}>
+        <View style={styles.termsContent}>
+          <View style={styles.wrapper}>
+            <Checkbox
+              status={frameIconchecked ? "checked" : "unchecked"}
+              onPress={() => setFrameIconchecked(!frameIconchecked)}
+              color="#235697"
+            />
+          </View>
+          <Text style={[styles.iHaveReadContainer, styles.step15Typo]}>
+            <Text
+              style={styles.iHaveRead}
+            >{`I have read and I understand Swift Pay Bank’s `}</Text>
+            <Text style={styles.terms}>Terms</Text>
+            <Text style={styles.iHaveRead}>{` `}</Text>
+            <Text style={styles.terms}>and conditions</Text>
+            <Text style={styles.iHaveRead}>{` and `}</Text>
+            <Text style={styles.terms}>Privacy Policy</Text>
+            <Text style={styles.iHaveRead}>.</Text>
+          </Text>
+        </View>
+      </View>
+      <FrameComponent6 mode="Light" homeIndicatorBackgroundColor="#000" />
+    </KeyboardAwareScrollView>
+  );
+};
+
+const styles = StyleSheet.create({
+  getStarted2Content: {
+    flexDirection: "column",
+    paddingTop: 59,
+    alignItems: "flex-start",
+    justifyContent: "flex-start",
+    gap: 20,
+    height: 812,
+    flex: 1,
+  },
+  getSpaceBlock: {
+    paddingLeft: Padding.padding_20,
+    width: Width.width_355,
+    flexDirection: "row",
+  },
+  step15Typo: {
+    fontFamily: FontFamily.darkerGrotesqueMedium,
+    fontWeight: "500",
+  },
+  wrapperSpaceBlock: {
+    paddingBottom: Padding.padding_4,
+    paddingLeft: Padding.padding_20,
+    flexDirection: "row",
+    width: Width.width_355,
+  },
+  getStarted2: {
+    backgroundColor: Color.labelColorDarkPrimary,
+    flex: 1,
+    maxWidth: "100%",
+    width: "100%",
+  },
+  getStarted2Inner: {
+    height: Height.height_31,
+    paddingBottom: Padding.padding_7,
+    zIndex: null,
+  },
+  caretleftParent: {
+    width: Width.width_335,
+    gap: 261,
+    height: Height.height_24,
+    flexDirection: "row",
+    zIndex: null,
+  },
+  caretleft: {
+    width: Width.width_24,
+    height: Height.height_24,
+  },
+  icon: {
+    nodeWidth: 24,
+    nodeHeight: 24,
+  },
+  step15Wrapper: {
+    width: 50,
+    height: Height.height_22_5,
+    paddingTop: Padding.padding_1_5,
+    zIndex: null,
+  },
+  step15: {
+    width: 53,
+    height: Height.height_21,
+    fontSize: FontSize.fs_13,
+    letterSpacing: LetterSpacing.ls__0_3,
+    lineHeight: LineHeight.lh_21,
+    textAlign: "center",
+    color: Color.colorSlategray,
+  },
+  getStarted2Child: {
+    height: Height.height_4,
+  },
+  getStartedWithYourAccountWrapper: {
+    height: Height.height_72,
+    zIndex: null,
+  },
+  getStartedWith: {
+    height: Height.height_68,
+    width: Width.width_338,
+    fontSize: FontSize.fs_28,
+    letterSpacing: LetterSpacing.ls__0_6,
+    lineHeight: LineHeight.lh_34,
+    fontWeight: "700",
+    fontFamily: FontFamily.darkerGrotesqueBold,
+    color: Color.colorDarkslategray100,
+    textAlign: "left",
+  },
+  frameView: {
+    height: 405,
+    paddingBottom: 289,
+    zIndex: null,
+  },
+  termsContentWrapper: {
+    height: Height.height_34,
+  },
+  termsContent: {
+    alignItems: "center",
+    gap: Gap.gap_12,
+    flexDirection: "row",
+  },
+  wrapper: {
+    width: Width.width_201,
+    height: Height.height_201,
+    justifyContent: "center",
+    alignItems: "center",
+    transform: "scale(NaN)",
+  },
+  iHaveReadContainer: {
+    width: Width.width_303,
+    fontSize: FontSize.fs_11,
+    letterSpacing: LetterSpacing.ls__0_2,
+    lineHeight: LineHeight.lh_15,
+    textAlign: "left",
+  },
+  iHaveRead: {
+    color: Color.colorSlategray,
+  },
+  terms: {
+    color: Color.colorDarkslateblue,
+  },
+});
+
+export default GetStarted21;
