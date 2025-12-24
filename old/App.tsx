@@ -27,13 +27,12 @@ import FrameComponent12 from "./components/FrameComponent12";
 import SpinnerRound1 from "./components/SpinnerRound1";
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { View, Text, Pressable, TouchableOpacity } from "react-native";
+import { View, Text, Pressable, TouchableOpacity, ActivityIndicator } from "react-native";
 
 const App = () => {
   const [hideSplashScreen, setHideSplashScreen] = React.useState(true);
 
   const [fontsLoaded, error] = useFonts({
-    "": require("./assets/fonts/.otf"),
     "PlusJakartaSans-SemiBold": require("./assets/fonts/PlusJakartaSans-SemiBold.ttf"),
     "DarkerGrotesque-Regular": require("./assets/fonts/DarkerGrotesque-Regular.ttf"),
     "DarkerGrotesque-Medium": require("./assets/fonts/DarkerGrotesque-Medium.ttf"),
@@ -42,7 +41,11 @@ const App = () => {
   });
 
   if (!fontsLoaded && !error) {
-    return null;
+    return (
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <ActivityIndicator size="large" />
+      </View>
+    );
   }
 
   return (

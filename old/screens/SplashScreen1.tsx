@@ -3,7 +3,6 @@ import { ScrollView, StyleSheet, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import A86295f41b41e39a667ec7cd8c03c7 from "../assets/31a86295-f41b-41e3-9a66-7ec7cd8c03c7.svg";
 import F83ba6f8060e4b84a2272d32d6af17ad from "../assets/f83ba6f8-060e-4b84-a227-2d32d6af17ad.svg";
-import IPhoneXOrNewer from "../components/IPhoneXOrNewer";
 import Notch from "../assets/Notch.svg";
 import HomeIndicator from "../components/HomeIndicator";
 import { Width, Height, Padding, Color } from "../GlobalStyles";
@@ -35,9 +34,6 @@ const SplashScreen1 = () => {
             </View>
           </View>
         </View>
-        <IPhoneXOrNewer
-          notch={<Notch width={Width.width_219} height={Height.height_30} />}
-        />
         <View style={styles.homeIndicator}>
           <HomeIndicator mode="Light" />
         </View>
@@ -52,7 +48,6 @@ const styles = StyleSheet.create({
     paddingTop: 387,
     alignItems: "flex-start",
     justifyContent: "flex-start",
-    gap: 353,
     height: 812,
     flex: 1,
   },
@@ -67,14 +62,14 @@ const styles = StyleSheet.create({
     paddingLeft: 72,
     flexDirection: "row",
     height: 38,
-    zIndex: null,
+    zIndex: 0,
   },
   defaultMonochrome2: {
     width: 230,
     overflow: "hidden",
     paddingTop: 0,
     paddingBottom: Padding.padding_0,
-    gap: 8,
+    
     flexDirection: "row",
     height: 38,
   },
@@ -86,7 +81,7 @@ const styles = StyleSheet.create({
     height: 31,
     paddingTop: 5,
     width: 184,
-    zIndex: null,
+    zIndex: 0,
   },
   f83ba6f8060e4b84A2272d32d6Icon: {
     height: 25,
